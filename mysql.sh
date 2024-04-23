@@ -4,8 +4,7 @@ USERID=$(id -u)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
-echo "please enter db password"
-read mention
+
 
 G="\e[31m]"
 R="\e[32m]"
@@ -35,7 +34,9 @@ VALIDATE $? "Installing mysql"
 
 systemctl enable mysqld
 systemctl start mysqld
-mysql_secure_installation --set-root-pass $mention
+mysql_secure_installation --set-root-pass ExpenseApp@1
+
+
 
 
 
